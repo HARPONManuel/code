@@ -1,0 +1,54 @@
+<p-toast></p-toast>
+<div class="admin-page" *ngIf="order">
+  <p-card [header]="'Détails de la commande'">
+    <p-fieldset legend="Order Details" styleClass="p-mb-4" [toggleable]="true">
+      <div class="p-grid">
+        <div class="p-col-4">
+          <h5>Id Commande</h5>
+          <p>{{ order.id }}</p>
+        </div>
+
+        <div class="p-col-4">
+          <h5>Date de la commande</h5>
+          <p>{{ order.dateOrdered | date: 'short' }}</p>
+        </div>
+
+        <div class="p-col-4">
+          <h5>Status de la commande</h5>
+          <p-dropdown
+            [options]="orderStatuses"
+            optionLabel="name"
+            optionValue="id"
+            (onChange)="onStatusChange($event)"
+            [(ngModel)]="selectedStatus"
+          >
+          </p-dropdown>
+        </div>
+
+        <div class="p-col-4">
+          <h5>Prix total de la commande</h5>
+          <p>{{ order.totalPrice | currency }}</p>
+        </div>
+      </div>
+    </p-fieldset>
+    <p-fieldset legend="Order Address" styleClass="p-mb-4" [toggleable]="true">
+      <div class="p-grid">
+        <div class="p-col-4">
+          <h5>Adresse de la commande</h5>
+          <p>
+            {{ order.shippingAddress1 }}<br />
+            {{ order.shippingAddress2 }}<br />
+            {{ order.zip }} {{ order.city }}<br />
+            {{ order.country }}
+          </p>
+        </div>
+
+        <div class="p-col-4">
+        </div>
+
+        <div class="p-col-4">
+        </div>
+      </div>
+    </p-fieldset>
+  </p-card>
+</div>

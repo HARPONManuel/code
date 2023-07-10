@@ -1,0 +1,17 @@
+nav{
+    background-color: #b2d1a6;
+};
+
+li {
+      list-style: none !important;
+      display: inline-block !important;
+      margin-right: 15px !important;
+  
+      a {
+        color: #0a0a0a !important;
+        cursor: pointer !important;
+        &:hover {
+          color: #9E9E9E !important;
+        }
+      }
+    }
